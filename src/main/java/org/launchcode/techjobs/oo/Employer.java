@@ -8,14 +8,16 @@ public class Employer {
     private static int nextId = 1;
     private String value;
 
+    //increments nexId so every new Employer object gets a different ID number
     public Employer() {
         id = nextId;
         nextId++;
     }
-
-    public Employer(String value) {
+    /*assigns aValue to value AND initializes if by calling the first constructor
+    with the this() statement */
+    public Employer(String aValue) {
         this();
-        this.value = value;
+        this.value = aValue;
     }
 
     // Custom toString, equals, and hashCode methods:
