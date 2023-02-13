@@ -15,9 +15,9 @@ public class Employer {
     }
     /*assigns aValue to value AND initializes if by calling the first constructor
     with the this() statement */
-    public Employer(String aValue) {
+    public Employer(String value) {
         this();
-        this.value = aValue;
+        this.value = value;
     }
 
     // Custom toString, equals, and hashCode methods:
