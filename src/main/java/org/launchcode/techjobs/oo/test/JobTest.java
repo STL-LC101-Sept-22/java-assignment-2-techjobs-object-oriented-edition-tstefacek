@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -41,8 +42,46 @@ public void testSettingJobId() {
     assertNotEquals(jobA.getEmployer().getId(), jobB.getEmployer().getId(), .001);
 }
 
+@Test
+    public void testToStringsStartsAndEndsWithNewLine() {
+    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    assertTrue(job.toString().startsWith("\n"));
+    assertTrue(job.toString().endsWith("\n"));
+}
 
+@Test
+    public void testToStringContainsCorrectLabelsAndData() {
+    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    assertTrue(job.toString().contains("\nId" + job.getId() +
+            "\nName: " + job.getName() +
+            "\nEmployer " + job.getEmployer() +
+            "\nLocation " + job.getLocation() +
+            "\nPosition Type: " + job.getPositionType() +
+            "\nCore Competency: " + job.getCoreCompetency() +
+            "\n"));
 
+}
+
+@Test
+    public void testToStringHandlesEmptyField() {
+    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    if (job.getName().equals("")) {
+        assertTrue(job.getName().equals("Data not available"));
+    }
+    if (job.getEmployer().equals("")) {
+        assertTrue(job.getEmployer().equals("Data not available"));
+    }
+    if (job.getLocation().equals("")) {
+        assertTrue(job.getLocation().equals("Data not available"));
+    }
+    if (job.getPositionType().equals("")) {
+        assertTrue(job.getPositionType().equals("Data not available"));
+    }
+    if (job.getCoreCompetency().equals("")) {
+        assertTrue(job.getCoreCompetency().equals("Data not available"));
+    }
+
+}
 
 
 }
