@@ -43,7 +43,7 @@ public void testSettingJobId() {
     assertFalse(jobA.getEmployer().getId() == (jobB.getEmployer().getId()));
     //assertNotEquals(jobA.getEmployer().getId(), jobB.getEmployer().getId(), .001);
 }
-//failed because I used asserTrue instead of assertEquals
+//failed because I used asserTrue instead of assertEquals....possibly??
 @Test
     public void testToStringStartsAndEndsWithNewLine() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -53,8 +53,8 @@ public void testSettingJobId() {
 
 @Test
     public void testToStringContainsCorrectLabelsAndData() {
-    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    assertEquals(job.toString(), "\nId: " + job.getId() +
+    Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+    assertEquals(job.toString(), "\nID: " + job.getId() +
             "\nName: " + job.getName() +
             "\nEmployer: " + job.getEmployer() +
             "\nLocation: " + job.getLocation() +
@@ -64,27 +64,21 @@ public void testSettingJobId() {
 
 }
 
-//failed because I used assertTrue instead of assertEquals
+//failed because I used assertTrue instead of assertEquals I think??
 @Test
     public void testToStringHandlesEmptyField() {
-    Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    if (job.getName().equals("")) {
-        assertTrue(job.getName().equals("Data not available"));
-    }
-    if (job.getEmployer().equals("")) {
-        assertTrue(job.getEmployer().equals("Data not available"));
-    }
-    if (job.getLocation().equals("")) {
-        assertTrue(job.getLocation().equals("Data not available"));
-    }
-    if (job.getPositionType().equals("")) {
-        assertTrue(job.getPositionType().equals("Data not available"));
-    }
-    if (job.getCoreCompetency().equals("")) {
-        assertTrue(job.getCoreCompetency().equals("Data not available"));
-    }
+    Job job = new Job("", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(job.toString(), "\nID: " + job.getId() +
+                "\nName: " + job.getName() +
+                "\nEmployer: " + job.getEmployer()+
+                "\nLocation: " + job.getLocation() +
+                "\nPosition Type: " + job.getPositionType()+
+                "\nCore Competency: " + job.getCoreCompetency() +
+                "\n");
+
+    System.out.println(job.getEmployer());
+
 
 }
-
 
 }
