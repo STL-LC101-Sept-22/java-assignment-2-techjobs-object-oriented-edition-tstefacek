@@ -39,11 +39,13 @@ public void testSettingJobId() {
     public void testJobsForEquality() {
     Job jobA = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     Job jobB = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    assertNotEquals(jobA.getEmployer().getId(), jobB.getEmployer().getId(), .001);
-}
 
+    assertFalse(jobA.getEmployer().getId() == (jobB.getEmployer().getId()));
+    //assertNotEquals(jobA.getEmployer().getId(), jobB.getEmployer().getId(), .001);
+}
+//failed because I used asserTrue instead of assertEquals
 @Test
-    public void testToStringsStartsAndEndsWithNewLine() {
+    public void testToStringStartsAndEndsWithNewLine() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     assertTrue(job.toString().startsWith("\n"));
     assertTrue(job.toString().endsWith("\n"));
@@ -52,16 +54,17 @@ public void testSettingJobId() {
 @Test
     public void testToStringContainsCorrectLabelsAndData() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    assertTrue(job.toString().contains("\nId" + job.getId() +
+    assertEquals(job.toString(), "\nId: " + job.getId() +
             "\nName: " + job.getName() +
-            "\nEmployer " + job.getEmployer() +
-            "\nLocation " + job.getLocation() +
+            "\nEmployer: " + job.getEmployer() +
+            "\nLocation: " + job.getLocation() +
             "\nPosition Type: " + job.getPositionType() +
             "\nCore Competency: " + job.getCoreCompetency() +
-            "\n"));
+            "\n");
 
 }
 
+//failed because I used assertTrue instead of assertEquals
 @Test
     public void testToStringHandlesEmptyField() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));

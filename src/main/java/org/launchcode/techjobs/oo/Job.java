@@ -51,22 +51,22 @@ public class Job {
             name = "Data not available";
         }
         if (employer.equals("")) {
-            employer.setValue("Data not available");
+            this.employer.equals("Data not available");
         }
         if (location.equals("")) {
-            location.setValue("Data not available");
+            this.location.equals("Data not available");
         }
         if (positionType.equals("")) {
-           positionType.setValue("Data not available");
+           this.positionType.equals("Data not available");
         }
         if (coreCompetency.equals("")) {
-            coreCompetency.setValue("Data not available");
+            this.coreCompetency.equals("Data not available");
         }
 
-        return  "\nId" + id +
+        return  "\nId: " + id +
                 "\nName: " + name +
-                "\nEmployer " + employer +
-                "\nLocation " + location +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
                 "\nPosition Type: " + positionType +
                 "\nCore Competency: " + coreCompetency +
                 "\n";
