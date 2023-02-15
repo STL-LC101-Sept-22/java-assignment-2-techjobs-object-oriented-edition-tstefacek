@@ -43,7 +43,10 @@ public void testSettingJobId() {
     assertFalse(jobA.getEmployer().getId() == (jobB.getEmployer().getId()));
     //assertNotEquals(jobA.getEmployer().getId(), jobB.getEmployer().getId(), .001);
 }
-//failed because I used asserTrue instead of assertEquals....possibly??
+/* this test fails because I used assertTrue instead of assertEquals
+Found methods online that check for starting and ending chars  of a string in a
+more succinct way than suggested in the text.
+ */
 @Test
     public void testToStringStartsAndEndsWithNewLine() {
     Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
